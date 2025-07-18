@@ -30,6 +30,12 @@ def download_video():
             },
             'cookiefile': 'cookies.txt'  # If you have exported cookies from your browser
         }
+        ydl_opts = {
+    'outtmpl': '/tmp/video.%(ext)s',
+    'format': 'best',
+    'cookiefile': 'cookies.txt'  # <--- This tells yt-dlp to use browser cookies
+}
+
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
