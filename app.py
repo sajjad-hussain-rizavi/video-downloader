@@ -20,7 +20,7 @@ def download_video():
             'format': 'bestvideo+bestaudio/best',
             'merge_output_format': 'mp4',
             'extractor_args': {
-                'generic': ['impersonate=firefox']
+                'generic': ['impersonate=chrome']
             }
         }
 
