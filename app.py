@@ -1,3 +1,10 @@
+from flask import Flask, request, send_file, jsonify
+import yt_dlp
+import os
+import uuid
+
+app = Flask(__name__)
+
 @app.route('/download', methods=['POST'])
 def download_video():
     url = request.json.get('url')
