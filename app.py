@@ -29,7 +29,7 @@ def download_video():
             # point to the *real* location of your exported cookies
             "cookiefile": "/opt/render/project/src/cookies.txt",
         }
-
+        print("DEBUG: cookies.txt exists?", os.path.exists("/opt/render/project/src/cookies.txt"))
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             downloaded_path = ydl.prepare_filename(info).replace("%(ext)s", "mp4")
