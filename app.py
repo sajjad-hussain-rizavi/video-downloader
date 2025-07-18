@@ -15,10 +15,14 @@ def download_video():
     output_path = f"./downloads/{file_id}.%(ext)s"
 
     ydl_opts = {
-        'outtmpl': output_path,
-        'format': 'bestvideo+bestaudio/best',
-        'merge_output_format': 'mp4',
+    'outtmpl': output_template,
+    'format': 'bestvideo+bestaudio/best',
+    'merge_output_format': 'mp4',
+    'extractor_args': {
+        'generic': ['impersonate=firefox']
     }
+}
+
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
